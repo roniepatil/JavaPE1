@@ -4,16 +4,21 @@ import java.util.Scanner;
 public class Palindrome {
     public static void main(String[] args) {
         Palindrome obj = new Palindrome();
-        obj.isPalindrome();
-    }
-    void isPalindrome()
-    {
         Scanner scan = new Scanner(System.in);
-        int num,remainder,originalInteger;
+        System.out.println("Enter number to check palindrome");
+        int num = scan.nextInt();
+
+        obj.isPalindrome(num);
+    }
+    boolean isPalindrome(int num)
+    {
+        boolean answer=false;
+
+        int remainder,originalInteger;
         int sum=0;
         int reversedinteger=0;
-        System.out.println("Enter number to check palindrome");
-        num = scan.nextInt();
+
+
         originalInteger=num;
         while (num!=0){
             remainder=num%10;
@@ -24,6 +29,7 @@ public class Palindrome {
         remainder=0;
         if (originalInteger==reversedinteger) {
             System.out.println(originalInteger + " number is palindrome");
+            answer=true;
             while (num != 0) {
                 remainder = num % 10;
                 if (remainder % 2 == 0) {
@@ -38,7 +44,11 @@ public class Palindrome {
             } else
                 System.out.println("sum of even numbers is greater than or equal to 25");
         }
-        else
-            System.out.println(originalInteger+" number is not a palindrome");
+        else {
+            System.out.println(originalInteger + " number is not a palindrome");
+            answer=false;
+        }
+        System.out.println(answer);
+        return answer;
     }
 }

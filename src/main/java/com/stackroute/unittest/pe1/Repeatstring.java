@@ -4,15 +4,16 @@ import java.util.Scanner;
 public class Repeatstring {
     public static void main(String[] args) {
         Repeatstring obj = new Repeatstring();
-        obj.printRepeated();
-    }
-    void printRepeated()
-    {
         Scanner scan = new Scanner(System.in);
         System.out.println("Give input 1 : Name : ");
         String name = scan.nextLine();
         System.out.println("Give input 2 : Number : ");
         int num = scan.nextInt();
+        obj.printRepeated(name,num);
+    }
+    String printRepeated(String name,int num)
+    {
+
         int a = name.length();
         int b = a-num;
         char f[] = new char[name.length()];
@@ -30,5 +31,6 @@ public class Repeatstring {
             name=name+total;
         }
         System.out.println(name);
+        return name;
     }
 }
